@@ -1,0 +1,26 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "creating server for Admin App",
+  "main": "index.js",
+  "scripts": {
+    "landing": "npm run serve --prefix ../landing",
+    "ui": "npm run serve --prefix ../ui",
+    "server": "nodemon index.js",
+    "dev": "concurrently \"npm run server\" \"npm run ui\" \"npm run landing\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^3.3.6",
+    "express": "^4.17.1",
+    "mongodb": "^4.0.0",
+    "mongoose": "^5.13.2",
+    "node-fetch": "2.0"
+  },
+  "devDependencies": {
+    "@types/node-fetch": "^3.0.3",
+    "nodemon": "^2.0.12",
+    "concurrently": "^6.3.0"
+  }
+}

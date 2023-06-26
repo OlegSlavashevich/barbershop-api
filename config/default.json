@@ -1,0 +1,4 @@
+{
+  "serverPort": 5050,
+  "dbUrl": "mongodb+srv://kristarus:kris123123@cluster0.gvltt.mongodb.net/BarbershopM1?retryWrites=true&w=majority"
+}
