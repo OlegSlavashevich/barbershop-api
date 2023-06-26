@@ -12,7 +12,7 @@ const webAppUrl = config.get("webAppUrl");
 
 const app = express();
 const bot = new TelegramBot(token, {polling: true});
-const PORT = config.get("serverPort");
+const PORT = process.env.PORT || 4000;
 
 app.use(corsMiddleware);
 app.use(express.json());
