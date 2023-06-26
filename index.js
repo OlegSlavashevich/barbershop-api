@@ -21,6 +21,10 @@ app.use("/api/", receptions);
 app.use("/api/", masters);
 app.use("/api/", services);
 
+app.get("/", (req, res) => {
+  res.send("Main page!");
+});
+
 bot.on('message', async (msg) => {
   const chatId = msg.chat.id;
   const text = msg.text;
