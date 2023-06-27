@@ -87,7 +87,7 @@ class ReceptionController {
         id: queryId,
         title: 'Успешная покупка',
         input_message_content: {
-            message_text: `${req.body.client}, вы записались в барбешоп на время: ${startTime}`
+            message_text: `${req.body.client.name}, вы записались в барбешоп на время: ${startTime}`
         }
       })
 
