@@ -1,6 +1,0 @@
-{
-  "serverPort": 5050,
-  "telegramBotToken": "5980276983:AAGh5Wp9cMD2m7DY2WWJKCArIuWEjySRzZw",
-  "webAppUrl": "https://6499aa26a4ded20095c9883b--glowing-mooncake-4c01c1.netlify.app/",
-  "dbUrl": "mongodb+srv://kristarus:kris123123@cluster0.gvltt.mongodb.net/BarbershopM1?retryWrites=true&w=majority"
-}

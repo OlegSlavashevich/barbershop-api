@@ -1,14 +1,29 @@
+if (process.env.MODE === 'development') {
+  require('dotenv').config();
+}
 const TelegramBot = require('node-telegram-bot-api');
 const express = require("express");
 const mongoose = require("mongoose");
-const config = require("config");
 const receptions = require("./routes/reception.routes");
 const masters = require("./routes/master.routes");
 const services = require("./routes/service.routes");
 const corsMiddleware = require("./middleware/cors.middleware");
 
-const token = config.get("telegramBotToken");
-const webAppUrl = config.get("webAppUrl");
+const token = process.env.TelegramBotToken;
+const webAppUrl = process.env.WebAppUrl;
+const dbUrl = process.env.DBUrl
+
+if (!token) {
+  throw new Error('token doent exists');
+}
+
+if (!webAppUrl) {
+  throw new Error('webAppUrl doent exists');
+}
+
+if (!dbUrl) {
+  throw new Error('dbUrl doent exists');
+}
 
 const app = express();
 const bot = new TelegramBot(token, {polling: true});
@@ -42,7 +57,7 @@ bot.on('message', async (msg) => {
 
 const start = async () => {
   try {
-    mongoose.connect(config.get("dbUrl"), {
+    mongoose.connect(process.env.DBUrl, {
       useUnifiedTopology: true,
       useNewUrlParser: true,
     });

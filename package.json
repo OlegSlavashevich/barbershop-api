@@ -4,15 +4,14 @@
   "description": "creating server for Admin App",
   "main": "index.js",
   "scripts": {
-    "landing": "npm run serve --prefix ../landing",
-    "ui": "npm run serve --prefix ../ui",
-    "server": "nodemon index.js",
-    "dev": "concurrently \"npm run server\" \"npm run ui\" \"npm run landing\""
+    "dev": "cross-env MODE=development nodemon index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "config": "^3.3.6",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.3.1",
     "express": "^4.17.1",
     "mongodb": "^4.0.0",
     "mongoose": "^5.13.2",
