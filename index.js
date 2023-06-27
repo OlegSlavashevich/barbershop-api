@@ -1,21 +1,16 @@
 if (process.env.MODE === 'development') {
   require('dotenv').config();
 }
-const TelegramBot = require('node-telegram-bot-api');
 const express = require("express");
 const mongoose = require("mongoose");
 const receptions = require("./routes/reception.routes");
 const masters = require("./routes/master.routes");
 const services = require("./routes/service.routes");
 const corsMiddleware = require("./middleware/cors.middleware");
+const bot = require('./bot/index');
 
-const token = process.env.TelegramBotToken;
 const webAppUrl = process.env.WebAppUrl;
 const dbUrl = process.env.DBUrl
-
-if (!token) {
-  throw new Error('token doent exists');
-}
 
 if (!webAppUrl) {
   throw new Error('webAppUrl doent exists');
@@ -26,7 +21,6 @@ if (!dbUrl) {
 }
 
 const app = express();
-const bot = new TelegramBot(token, {polling: true});
 const PORT = process.env.PORT || 4000;
 
 app.use(corsMiddleware);

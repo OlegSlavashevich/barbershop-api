@@ -1,3 +1,4 @@
+const bot = require('../bot/index');
 const Reception = require("../models/Reception");
 const Client = require("../models/Client");
 const Master = require("../models/Master");
@@ -78,6 +79,17 @@ class ReceptionController {
         await Client.findOneAndDelete(client._id);
         return res.status(500).send({ success: false, message: "Cannot create new reception" });
       }
+
+      const { queryId } = req.body;
+
+      await bot.answerWebAppQuery(queryId, {
+        type: 'article',
+        id: queryId,
+        title: 'Успешная покупка',
+        input_message_content: {
+            message_text: `Вы записались в барбешоп на время: ${startTime}`
+        }
+      })
 
       return res.status(200).send({ success: true, reception });
     } catch (e) {
